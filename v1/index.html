@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>LeafTag - Registros Dendrológicos</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body onload="startApp()">
+  <div id="splashScreen" class="screen splash active">
+    <img src="assets/leaftag.png" class="splash-logo" />
+    <p class="splash-text">Toque para continuar</p>
+    <div class="splash-click" onclick="closeSplash()"></div>
+  </div>
+
+  <div id="mainScreen" class="screen">
+    <img src="assets/leaftag.png" class="main-logo" alt="LeafTag" />
+    <h1>Registros Dendrológicos</h1>
+    <button class="menu-btn" onclick="goTo('galleryScreen')">Minhas Famílias</button>
+    <button class="menu-btn" onclick="goTo('searchScreen')">Buscar Espécies</button>
+    <button class="menu-btn" onclick="goTo('mapScreen')">Mapa de Registros</button>
+    <button class="menu-btn" onclick="goTo('statisticsScreen')">Estatísticas</button>
+  </div>
+
+  <div id="galleryScreen" class="screen">
+    <h2>Minhas Famílias</h2>
+    <div id="familiesContainer"></div>
+    <button class="add-btn" onclick="prepareForm()">+ Novo Registro</button>
+    <button class="btn-back" onclick="goTo('mainScreen')">Voltar</button>
+  </div>
+
+  <div id="familySpeciesScreen" class="screen">
+    <h2 id="familyTitle"></h2>
+    <div id="speciesList"></div>
+    <button class="add-btn" onclick="novoRegistroParaFamilia()">+ Novo Registro</button>
+    <button class="btn-back" onclick="goTo('galleryScreen')">Voltar</button>
+  </div>
+
+  <div id="addSpeciesScreen" class="screen">
+    <h2>Novo Registro</h2>
+    <input type="text" id="nomePopular" placeholder="Nome popular" />
+    <input type="text" id="nomeCientifico" placeholder="Nome científico" />
+    <input type="text" id="familia" placeholder="Família" />
+    <input type="text" id="local" placeholder="Local de coleta" />
+    <div class="location-section">
+      <button type="button" onclick="obterLocalizacao()" class="btn-secondary">📍 Obter Localização GPS</button>
+      <div id="locationInfo" style="display:none;">
+        <p><strong>Coordenadas:</strong> <span id="coordinates"></span></p>
+        <p><strong>Precisão:</strong> <span id="accuracy"></span> metros</p>
+      </div>
+    </div>
+    <textarea id="notas" placeholder="Notas e observações"></textarea>
+    <input type="file" id="fotoInput" accept="image/*" multiple />
+    <div id="photosPreview"></div>
+    <button onclick="salvarEspecie()" class="menu-btn">Salvar</button>
+    <button class="btn-back" onclick="goTo('galleryScreen')">Cancelar</button>
+  </div>
+
+  <div id="speciesDetailScreen" class="screen">
+    <h2 id="detailTitle"></h2>
+    <div id="detailImages"></div>
+    <div id="detailInfo"></div>
+    <button class="menu-btn" onclick="editarEspecie()">Editar</button>
+    <button class="menu-btn" onclick="confirmarExclusao()">Excluir</button>
+    <button class="btn-back" onclick="goTo('familySpeciesScreen')">Voltar</button>
+  </div>
+
+  <div id="searchScreen" class="screen">
+    <h2>Buscar Espécies</h2>
+    <input type="text" id="searchInput" placeholder="Buscar por nome popular, científico, família..." onkeyup="buscarEspecies()" />
+    <div class="filter-options">
+      <label class="filter-option">
+        <input type="checkbox" id="filterFoto" onchange="buscarEspecies()"> Apenas com foto
+      </label>
+      <label class="filter-option">
+        <input type="checkbox" id="filterGPS" onchange="buscarEspecies()"> Apenas com GPS
+      </label>
+    </div>
+    <div id="searchResults"></div>
+    <button class="btn-back" onclick="goTo('mainScreen')">Voltar</button>
+  </div>
+
+  <div id="mapScreen" class="screen">
+    <h2>Mapa de Registros</h2>
+    <div id="mapContainer">
+      <p style="text-align: center; padding: 40px; color: #666;">
+        Mapa será implementado em breve<br>
+        Mostrará todos os registros com GPS
+      </p>
+    </div>
+    <button class="btn-back" onclick="goTo('mainScreen')">Voltar</button>
+  </div>
+
+  <div id="statisticsScreen" class="screen">
+    <h2>Estatísticas</h2>
+    <div id="statsContainer"></div>
+    <button class="btn-back" onclick="goTo('mainScreen')">Voltar</button>
+  </div>
+
+  <!-- MODAIS -->
+  <div id="confirmModal" class="modal-overlay">
+    <div class="modal-box">
+      <p>Tem certeza que deseja excluir este registro?</p>
+      <button onclick="excluirEspecieConfirmado()" class="menu-btn">Confirmar Exclusão</button>
+      <button onclick="fecharModal()" class="btn-back">Cancelar</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
