@@ -23,7 +23,21 @@ const STORES = {
 };
 
 // ========== INICIALIZAÇÃO DO APLICATIVO ==========
-
+function startApp() {
+  console.log('LeafTag Registros iniciado');
+  
+  // FORÇAR SPLASH ATIVO
+  const splash = document.getElementById('splashScreen');
+  const main = document.getElementById('mainScreen');
+  
+  splash.classList.add('active');
+  main.classList.remove('active');
+  
+  console.log('Splash forçado para:', splash.className);
+  console.log('Main forçado para:', main.className);
+  
+  // resto do código...
+}
 function startApp() {
   console.log('LeafTag Registros iniciado');
   
