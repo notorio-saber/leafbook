@@ -1196,3 +1196,20 @@ body {
   0% { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
+/* FIX: Garantir que splash seja visível inicialmente */
+#splashScreen {
+  display: flex !important;
+}
+
+#mainScreen {
+  display: none !important;
+}
+
+/* Só depois que as classes forem manipuladas pelo JS */
+#splashScreen:not(.active) {
+  display: none !important;
+}
+
+#mainScreen.active {
+  display: block !important;
+}
