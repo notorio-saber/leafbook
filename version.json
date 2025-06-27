@@ -1,0 +1,27 @@
+{
+  "version": "1.0.0",
+  "buildDate": "2024-12-19",
+  "features": [
+    "Sistema offline-first completo",
+    "IndexedDB para armazenamento local",
+    "Compressão automática de imagens",
+    "Geolocalização com alta precisão",
+    "PWA instalável",
+    "Sincronização automática",
+    "Exportação de dados",
+    "Interface responsiva moderna"
+  ],
+  "changelog": {
+    "1.0.0": [
+      "Lançamento inicial",
+      "Funcionalidades básicas de registro",
+      "Suporte offline completo",
+      "PWA instalável"
+    ]
+  },
+  "minVersion": "1.0.0",
+  "updateRequired": false,
+  "updateMessage": "Nova versão disponível com melhorias de performance e novos recursos.",
+  "downloadUrl": "https://leaftag.app",
+  "cacheVersion": "leaftag-v1.0.0"
+}

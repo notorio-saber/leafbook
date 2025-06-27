@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<browserconfig>
+    <msapplication>
+        <tile>
+            <square70x70logo src="assets/leaftag-icon-70x70.png"/>
+            <square150x150logo src="assets/leaftag-icon-150x150.png"/>
+            <wide310x150logo src="assets/leaftag-icon-310x150.png"/>
+            <square310x310logo src="assets/leaftag-icon-310x310.png"/>
+            <TileColor>#2c5e3f</TileColor>
+        </tile>
+        <notification>
+            <polling-uri src="https://leaftag.app/notifications/poll1"/>
+            <polling-uri2 src="https://leaftag.app/notifications/poll2"/>
+            <polling-uri3 src="https://leaftag.app/notifications/poll3"/>
+            <polling-uri4 src="https://leaftag.app/notifications/poll4"/>
+            <polling-uri5 src="https://leaftag.app/notifications/poll5"/>
+            <frequency>30</frequency>
+            <cycle>1</cycle>
+        </notification>
+    </msapplication>
+</browserconfig>
